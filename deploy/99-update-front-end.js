@@ -33,7 +33,7 @@ async function updateContractAddresses() {
     const chainId = network.config.chainId.toString()
     const contractAddresses = JSON.parse(fs.readFileSync(frontEndContractsFile, "utf8"))
     if (chainId in contractAddresses) {
-        if (!contractAddresses[chainId]["NFTMarketplace"].includes(nftMarketplace.address)) {
+        if (!contractAddresses[chainId]["NftMarketplace"].includes(nftMarketplace.address)) {
             contractAddresses[chainId]["NftMarketplace"].push(nftMarketplace.address)
         }
     } else {

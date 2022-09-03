@@ -178,4 +178,6 @@ contract NftMarketplace is ReentrancyGuard {
         return s_proceeds[seller];
     }
 
+    fallback() external payable {}
+    receive() external payable {}
 }
