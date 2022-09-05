@@ -84,9 +84,18 @@ module.exports = {
         // npx hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
             rinkeby: ETHERSCAN_API_KEY,
-            kovan: ETHERSCAN_API_KEY,
-            polygon: POLYGONSCAN_API_KEY,
         },
+        // In case the module can't find the rinkeby etherscan automatically
+        customChains: [
+            {
+                network: "rinkeby",
+                chainId: 4,
+                urls: {
+                    apiURL: "https://api-rinkeby.etherscan.io/api",
+                    browserURL: "https://rinkeby.etherscan.io",
+                },
+            },
+        ],
     },
     gasReporter: {
         enabled: REPORT_GAS,
